@@ -264,56 +264,56 @@ def youtube_processor():
     )
 
 
-# def g_calendar_processor():
+# # def g_calendar_processor():
 
-    st.title("Google Calendar AI Agent")
+#     st.title("Google Calendar AI Agent")
 
-    agent = Agent(
-        model=Gemini(id="gemini-2.0-flash-exp"),
-        tools=[GoogleCalendarTools(credentials_path="google_credentials.json")],
-        show_tool_calls=False,
-        instructions=[
-            f"""
-            You are scheduling assistant . Today is {datetime.datetime.now()} and the users timezone is {get_localzone_name()}.
-            You should help users with answers from their queries and from their Google calendar.
-            """
-        ],
-        add_datetime_to_instructions=True,
-    )
+#     agent = Agent(
+#         model=Gemini(id="gemini-2.0-flash-exp"),
+#         tools=[GoogleCalendarTools(credentials_path="google_credentials.json")],
+#         show_tool_calls=False,
+#         instructions=[
+#             f"""
+#             You are scheduling assistant . Today is {datetime.datetime.now()} and the users timezone is {get_localzone_name()}.
+#             You should help users with answers from their queries and from their Google calendar.
+#             """
+#         ],
+#         add_datetime_to_instructions=True,
+#     )
 
-    user_query = st.text_area(
-            "What do you want to know about your calendar events?",
-            placeholder="Ask anything about your upcoming or past events.",
-            help="Provide specific questions or insights you want from your schedule."
-        )
+#     user_query = st.text_area(
+#             "What do you want to know about your calendar events?",
+#             placeholder="Ask anything about your upcoming or past events.",
+#             help="Provide specific questions or insights you want from your schedule."
+#         )
 
-    if st.button("🔍 Ask", key="ask_calendar_button"):
-        if not user_query:
-            st.warning("Please enter a question to ask from your schedule.")
-        else:
-            try:
-                with st.spinner("Fetching Calendar results and getting insights..."):
-                    response = agent.run(user_query, markdown=True)
-                    st.subheader("Results")
-                    st.markdown(response.content)
+#     if st.button("🔍 Ask", key="ask_calendar_button"):
+#         if not user_query:
+#             st.warning("Please enter a question to ask from your schedule.")
+#         else:
+#             try:
+#                 with st.spinner("Fetching Calendar results and getting insights..."):
+#                     response = agent.run(user_query, markdown=True)
+#                     st.subheader("Results")
+#                     st.markdown(response.content)
 
-            except Exception as error:
-                st.error(f"An error occurred during analysis: {error}")
+#             except Exception as error:
+#                 st.error(f"An error occurred during analysis: {error}")
     
     
-    st.info("Ask a question to begin with.")
+#     st.info("Ask a question to begin with.")
 
-    # Customize text area height
-    st.markdown(
-        """
-        <style>
-        .stTextArea textarea {
-            height: 100px;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+#     # Customize text area height
+#     st.markdown(
+#         """
+#         <style>
+#         .stTextArea textarea {
+#             height: 100px;
+#         }
+#         </style>
+#         """,
+#         unsafe_allow_html=True
+#     )
 
 
 # sidebar for selecting the task
