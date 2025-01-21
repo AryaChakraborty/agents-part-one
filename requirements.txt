@@ -18,3 +18,6 @@ duckduckgo-search
 youtube_transcript_api
 resend
 tzlocal
+google-api-python-client 
+google-auth-httplib2 
+google-auth-oauthlib
