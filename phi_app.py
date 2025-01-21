@@ -263,7 +263,8 @@ def youtube_processor():
         unsafe_allow_html=True
     )
 
-def g_calendar_processor():
+
+# def g_calendar_processor():
 
     st.title("Google Calendar AI Agent")
 
@@ -328,4 +329,5 @@ elif option == "Image":
 elif option == "YouTube":
     youtube_processor()
 elif option == "Calendar":
-    g_calendar_processor()
+    # g_calendar_processor()
+    pass
